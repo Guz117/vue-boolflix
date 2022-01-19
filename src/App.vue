@@ -14,6 +14,15 @@ export default {
   components: {
     Header,
     Main,
+  },
+  data() {
+    return{
+      selectTitle: '',
+      generesList: [],
+    };
+  },
+  methods: {
+    
   }
 }
 </script>
