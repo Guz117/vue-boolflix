@@ -46,5 +46,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~mdb-ui-kit/css/mdb.min.css';
+
 </style>
