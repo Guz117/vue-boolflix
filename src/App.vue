@@ -2,8 +2,8 @@
   <div id="app">
     <Header @searchFilm="search($event)" />
     <Main 
-    :cardsFilm="cards"
-    :cardsSeries="cards"
+    :cardsFilm="cardsMovie"
+    :cardsSeries="cardsTv"
     />
   </div>
 </template>
@@ -25,7 +25,8 @@ export default {
       api_key: 'f5b95f9ba9397336a5f3db3b0f59503f',
       language: 'en-US',
       searchText: '',
-      cards: [],
+      cardsMovie: [],
+      cardsTv: [],
       endpointMovie: 'movie',
       endpointTv:'tv',
     };
@@ -36,11 +37,8 @@ export default {
     },
     search(text) {
       this.searchText = text;
-      if (this.endpointMovie) {
-        this.getFilms();
-      } else if (this.endpointTv) {
         this.getSeries();
-      }
+        this.getFilms();
     },
     getFilms() {
       const endpointMovie = this.endpointMovie;
@@ -52,13 +50,13 @@ export default {
 
       axios.get(`${this.query}${endpointMovie}`, { params: parameters })
       .then((result) => {
-        this.cards = result.data.results;
+        this.cardsMovie = result.data.results;
       })
       .catch((error) => console.log(error));
     },
 
     getSeries() {
-      const endpointTv = this.endpointTV;
+      const endpointTv = this.endpointTv;
       const parameters = {
         api_key: this.api_key,
         language: this.language,
@@ -67,7 +65,7 @@ export default {
 
       axios.get(`${this.query}${endpointTv}`, { params: parameters })
       .then((result) => {
-        this.cards = result.data.results;
+        this.cardsTv = result.data.results;
       })
       .catch((error) => console.log(error));
     },

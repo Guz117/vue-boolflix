@@ -4,13 +4,13 @@
       class="cards/"
     >
       <CardFilm
-        v-for="(cardFilm, index) in cardsFilm"
-        :key="index"
+        v-for="(cardFilm, indexMovie) in cardsFilm"
+        :key="indexMovie"
         :info="cardFilm"
       />
       <CardSeries
-        v-for="(cardSeries, index) in cardsSeries"
-        :key="index"
+        v-for="(cardSeries, indexTv) in cardsSeries"
+        :key="indexTv"
         :info="cardSeries"
       />
 
@@ -45,6 +45,6 @@ export default {
 };
 </script>
 
-<style>
-
+<style lang="scss">
+@import '~mdb-ui-kit/css/mdb.min.css';
 </style>
