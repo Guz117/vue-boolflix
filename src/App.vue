@@ -2,7 +2,8 @@
   <div id="app">
     <Header @searchFilm="search($event)" />
     <Main 
-    :cards="cards"
+    :cardsFilm="cards"
+    :cardsSeries="cards"
     />
   </div>
 </template>
@@ -25,6 +26,8 @@ export default {
       language: 'en-US',
       searchText: '',
       cards: [],
+      endpointMovie: 'movie',
+      endpointTv:'tv',
     };
   },
   methods: {
@@ -33,18 +36,21 @@ export default {
     },
     search(text) {
       this.searchText = text;
-      this.getFilms();
-      // this.getSeries();
+      if (this.endpointMovie) {
+        this.getFilms();
+      } else if (this.endpointTv) {
+        this.getSeries();
+      }
     },
     getFilms() {
-      const endpoint = 'movie';
+      const endpointMovie = this.endpointMovie;
       const parameters = {
         api_key: this.api_key,
         language: this.language,
         query: this.searchText,
       };
 
-      axios.get(`${this.query}${endpoint}`, { params: parameters })
+      axios.get(`${this.query}${endpointMovie}`, { params: parameters })
       .then((result) => {
         this.cards = result.data.results;
       })
@@ -52,14 +58,14 @@ export default {
     },
 
     getSeries() {
-      const endpoint = 'tv';
+      const endpointTv = this.endpointTV;
       const parameters = {
         api_key: this.api_key,
         language: this.language,
         query: this.searchText,
       };
 
-      axios.get(`${this.query}${endpoint}`, { params: parameters })
+      axios.get(`${this.query}${endpointTv}`, { params: parameters })
       .then((result) => {
         this.cards = result.data.results;
       })

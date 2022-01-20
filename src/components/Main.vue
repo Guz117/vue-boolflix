@@ -1,31 +1,41 @@
 <template>
   <main>
     <div
-      v-if="cards.length > 0"
       class="cards/"
     >
       <CardFilm
-        v-for="(card, index) in cards"
+        v-for="(cardFilm, index) in cardsFilm"
         :key="index"
-        :info="card"
+        :info="cardFilm"
       />
-    </div>
-    <div v-else>
-      Nessun risultato
+      <CardSeries
+        v-for="(cardSeries, index) in cardsSeries"
+        :key="index"
+        :info="cardSeries"
+      />
+
     </div>
   </main>
 </template>
 
 <script>
 import CardFilm from './CardFilm.vue';
+import CardSeries from './CardSeries.vue';
 
 export default {
   name: 'Main',
   components: {
     CardFilm,
+    CardSeries,
   },
   props: {
-    cards: {
+    cardsFilm: {
+      type: Array,
+      default() {
+        return [];
+      },
+    },
+    cardsSeries: {
       type: Array,
       default() {
         return [];
