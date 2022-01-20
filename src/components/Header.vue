@@ -1,19 +1,25 @@
 <template>
   <div class="header">
       <h1>BOOLFLIX</h1>
-      <Search 
-        @doSearch="searchGenre($event)"
-      />
+      <div class="search">
+      <input
+        v-model="textSearch"
+        type="text"
+        placeholder="Inserisci un testo"
+      >
+      <button
+        @click="$emit('searchFilm', textSearch)"
+      >
+        Cerca
+      </button>
+    </div>
   </div>
 </template>
 
 <script>
-import Search from './Search';
 export default {
     name: 'Header',
-    components: {
-        Search,
-    },
+    
     data() {
         return {
             textSearch: '',
