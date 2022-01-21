@@ -6,16 +6,21 @@
       <i :class="'flag flag-' + flag(info.original_language)" />
     </p>
     <p>{{ info.vote_average }}
-      <!-- <font-awesome-icon  icon="user-secret" /> -->
+       <i class="fas fa-star" :class="info.vote_average > 0 ? 'yellow' : 'grey' "></i>
+      <i class="fas fa-star" :class="info.vote_average >= 4 ? 'yellow' : 'grey' "></i>
+      <i class="fas fa-star" :class="info.vote_average >= 6 ? 'yellow' : 'grey' "></i>
+      <i class="fas fa-star" :class="info.vote_average >= 8 ? 'yellow' : 'grey' "></i>
+      <i class="fas fa-star" :class="info.vote_average >= 10 ? 'yellow' : 'grey' "></i>
     </p>
   </div>
 </template>
 
 <script>
 // import { library } from '@fortawesome/fontawesome-svg-core'
-// import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
+// import { faStar } from '@fortawesome/free-solid-svg-icons'
 // import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-// library.add(faUserSecret)
+// library.add(faStar)
+
 
 export default {
   name: 'CardFilm',
@@ -38,4 +43,11 @@ export default {
 
 <style>
 @import '~mdb-ui-kit/css/mdb.min.css';
+  .yellow {
+    color: yellow;
+  }
+
+  .grey {
+    color:lightgrey;
+  }
 </style>
