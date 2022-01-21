@@ -71,7 +71,12 @@ export default {
       height: 452px;
       background-color: black;
       opacity: 0.8;
+      display: none;
     }
+  }
+
+  .card-film:hover .description{
+    display: block;
   }
 
   
