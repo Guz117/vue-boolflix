@@ -1,6 +1,12 @@
 <template>
   <div class="card-series">
-    <img :src="`https://image.tmdb.org/t/p/w342${info.poster_path}`" alt="">
+    <img
+    v-if="info.poster_path == null" 
+    :src="require('../assets/images/non_disponibile.jpg')" alt="">
+    
+    <img
+    v-else
+     :src="`https://image.tmdb.org/t/p/w342${info.poster_path}`" alt="">
     <p>{{ info.original_name }}</p>
     <p>
       <i :class="'flag flag-' + flag(info.original_language)" />

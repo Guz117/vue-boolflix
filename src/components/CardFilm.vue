@@ -1,6 +1,11 @@
 <template>
   <div class="card-film">
-    <img :src="`https://image.tmdb.org/t/p/w342${info.poster_path}`" alt="">
+    <img
+    v-if="info.poster_path == null" 
+    :src="require('../assets/images/non_disponibile.jpg')" alt="">
+    <img 
+    v-else
+    :src="`https://image.tmdb.org/t/p/w342/${info.poster_path}`" alt="">
     <p>{{ info.title }}</p>
     <p>{{ info.original_title }}</p>
     <p>
