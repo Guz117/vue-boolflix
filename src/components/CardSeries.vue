@@ -1,5 +1,6 @@
 <template>
-  <div class="card-series">
+<div></div>
+  <!-- <div class="card-series">
     <img
     v-if="info.poster_path == null" 
     :src="require('../assets/images/non_disponibile.jpg')" alt="">
@@ -18,34 +19,34 @@
       <i class="fas fa-star" :class="info.vote_average >= 8 ? 'yellow' : 'grey' "></i>
       <i class="fas fa-star" :class="info.vote_average >= 10 ? 'yellow' : 'grey' "></i>
     </p>
-  </div>
+  </div> -->
 </template>
 
 <script>
 export default {
-  name: 'CardSeries',
-  props: {
-    info: Object,
-  },
-  methods: {
-    flag(language) {
-      if (language === 'en') {
-        return 'us';
-      }
-      return language;
-    },
+  // name: 'CardSeries',
+  // props: {
+  //   info: Object,
+  // },
+  // methods: {
+  //   flag(language) {
+  //     if (language === 'en') {
+  //       return 'us';
+  //     }
+  //     return language;
+  //   },
     
-  },
+  // },
 };
 </script>
 
 <style>
-@import '~mdb-ui-kit/css/mdb.min.css';
+/* @import '~mdb-ui-kit/css/mdb.min.css';
   .yellow {
     color: yellow;
   }
 
   .grey {
     color:lightgrey;
-  }
+  } */
 </style>

@@ -1,16 +1,16 @@
 <template>
-  <main>
+  <main class="cont">
     <div
-      class="cards/"
+      class="cards"
     >
-      <CardFilm
+      <CardFilm 
         v-for="(cardFilm, indexMovie) in cardsFilm"
         :key="indexMovie+cardFilm.id"
         :info="cardFilm"
       />
-      <CardSeries
-        v-for="(cardSeries, indexTv) in cardsSeries"
-        :key="indexTv+cardSeries.id"
+      <CardFilm 
+        v-for="(cardSeries, indexSeries) in cardsSeries"
+        :key="indexSeries+cardSeries.id"
         :info="cardSeries"
       />
 
@@ -20,14 +20,15 @@
 
 <script>
 import CardFilm from './CardFilm.vue';
-import CardSeries from './CardSeries.vue';
+// import CardSeries from './CardSeries.vue';
 
 export default {
   name: 'Main',
   components: {
     CardFilm,
-    CardSeries,
+    // CardSeries,
   },
+
   props: {
     cardsFilm: {
       type: Array,
@@ -46,5 +47,19 @@ export default {
 </script>
 
 <style lang="scss">
+  main {
+    width: 100%;
+    height: 100vh;
+    background: url('../assets/images/sfondo.jpg');
+  }
 
+  .cards {
+    width: 100vw;
+    padding-top: 2em;
+    background: url('../assets/images/sfondo.jpg');
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
 </style>

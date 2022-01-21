@@ -6,18 +6,21 @@
     <img 
     v-else
     :src="`https://image.tmdb.org/t/p/w342/${info.poster_path}`" alt="">
-    <p>{{ info.title }}</p>
-    <p>{{ info.original_title }}</p>
-    <p>
-      <i :class="'flag flag-' + flag(info.original_language)" />
-    </p>
-    <p>{{ info.vote_average }}
-       <i class="fas fa-star" :class="info.vote_average > 0 ? 'yellow' : 'grey' "></i>
-      <i class="fas fa-star" :class="info.vote_average >= 4 ? 'yellow' : 'grey' "></i>
-      <i class="fas fa-star" :class="info.vote_average >= 6 ? 'yellow' : 'grey' "></i>
-      <i class="fas fa-star" :class="info.vote_average >= 8 ? 'yellow' : 'grey' "></i>
-      <i class="fas fa-star" :class="info.vote_average >= 10 ? 'yellow' : 'grey' "></i>
-    </p>
+    <div class="description">
+      <p>{{ (info.title) ? info.title : info.name }}</p>
+      <p>{{ (info.original_title) ? info.original_title : info.original_name }}</p>
+      <p>
+        <i :class="'flag flag-' + flag(info.original_language)" />
+      </p>
+      <p>{{ info.vote_average }}
+        <i :class="info.vote_average > 0 ? 'fas fa-star' : 'far fa-star' "></i>
+        <i :class="info.vote_average >= 4 ? 'fas fa-star' : 'far fa-star' "></i>
+        <i :class="info.vote_average >= 6 ? 'fas fa-star' : 'far fa-star' "></i>
+        <i :class="info.vote_average >= 8 ? 'fas fa-star' : 'far fa-star' "></i>
+        <i :class="info.vote_average >= 10 ? 'fas fa-star' : 'far fa-star' "></i>
+      </p>
+      <p>{{ info.overview }}</p>
+    </div>
   </div>
 </template>
 
@@ -44,13 +47,32 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 @import '~mdb-ui-kit/css/mdb.min.css';
-  .yellow {
+  i {
     color: yellow;
   }
 
-  .grey {
-    color:lightgrey;
+  .description {
+    color: white;
   }
+
+   .card-film {
+    width: 300px;
+    height: 452px;
+    position: relative;
+    img {
+      width: 100%;
+    }
+    .description{
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      height: 452px;
+      background-color: black;
+      opacity: 0.8;
+    }
+  }
+
+  
 </style>

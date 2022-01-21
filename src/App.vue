@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <div class="background"></div>
     <Header @searchFilm="search($event)" />
     <Main 
     :cardsFilm="cardsMovie"

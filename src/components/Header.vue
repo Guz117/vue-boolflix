@@ -1,17 +1,19 @@
 <template>
   <div class="header">
-      <h1>BOOLFLIX</h1>
+      <img :src="require('../assets/images/logo.png')" alt="">
       <div class="search">
       <input
         v-model="textSearch"
         type="text"
         placeholder="Film e Serie TV"
       >
-      <button
-        @click="$emit('searchFilm', textSearch)"
-      >
-        Cerca
-      </button>
+      <div class="button">
+        <button
+          @click="$emit('searchFilm', textSearch)"
+        >
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
       
     </div>
   </div>
@@ -36,9 +38,28 @@ export default {
     justify-content: space-between;
     align-items: center;
     padding: 0 2em;
-      h1 {
+  }
+
+  .search {
+    width: 500px;
+  }
+
+  input {
+    outline-color: red;
+    width: 420px;
+    border-radius: 10px;
+  }
+
+  .button {
+    padding-left: 0.7em;
+    display: inline;
+    button {
+      border-radius: 10px;
+      background-color: rgb(211, 211, 211);
+      .fa-search {
         color: red;
       }
+    }
   }
 
 
