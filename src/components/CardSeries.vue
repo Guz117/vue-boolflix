@@ -1,5 +1,5 @@
 <template>
-  <div class="card-film">
+  <div class="card-series">
     <img :src="`https://image.tmdb.org/t/p/w342${info.poster_path}`" alt="">
     <p>{{ info.original_name }}</p>
     <p>

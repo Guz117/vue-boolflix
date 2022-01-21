@@ -5,13 +5,14 @@
       <input
         v-model="textSearch"
         type="text"
-        placeholder="Inserisci un testo"
+        placeholder="Film e Serie TV"
       >
       <button
         @click="$emit('searchFilm', textSearch)"
       >
         Cerca
       </button>
+      
     </div>
   </div>
 </template>

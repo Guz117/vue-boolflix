@@ -1,5 +1,6 @@
 <template>
   <div class="card-film">
+    <img :src="`https://image.tmdb.org/t/p/w342${info.poster_path}`" alt="">
     <p>{{ info.title }}</p>
     <p>{{ info.original_title }}</p>
     <p>
@@ -16,16 +17,13 @@
 </template>
 
 <script>
-// import { library } from '@fortawesome/fontawesome-svg-core'
-// import { faStar } from '@fortawesome/free-solid-svg-icons'
-// import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-// library.add(faStar)
+
 
 
 export default {
   name: 'CardFilm',
   components: {
-    // FontAwesomeIcon,
+    
   },
   props: {
     info: Object,

@@ -5,12 +5,12 @@
     >
       <CardFilm
         v-for="(cardFilm, indexMovie) in cardsFilm"
-        :key="indexMovie"
+        :key="indexMovie+cardFilm.id"
         :info="cardFilm"
       />
       <CardSeries
         v-for="(cardSeries, indexTv) in cardsSeries"
-        :key="indexTv"
+        :key="indexTv+cardSeries.id"
         :info="cardSeries"
       />
 
