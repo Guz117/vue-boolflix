@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="background"></div>
+    <Copertina />
     <Header @searchFilm="search($event)" />
     <Main 
     :cardsFilm="cardsMovie"
@@ -13,6 +13,7 @@
 import axios from 'axios';
 import Header from './components/Header.vue';
 import Main from './components/Main.vue';
+import Copertina from './components/Copertina.vue';
 
 
 export default {
@@ -20,6 +21,7 @@ export default {
   components: {
     Header,
     Main,
+    Copertina,
   },
   data() {
     return{
