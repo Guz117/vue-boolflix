@@ -7,19 +7,19 @@
     v-else
     :src="`https://image.tmdb.org/t/p/w342/${info.poster_path}`" alt="">
     <div class="description">
-      <p>{{ (info.title) ? info.title : info.name }}</p>
-      <p>{{ (info.original_title) ? info.original_title : info.original_name }}</p>
-      <p>
+      <p>Title: {{ (info.title) ? info.title : info.name }}</p>
+      <p>Original title: {{ (info.original_title) ? info.original_title : info.original_name }}</p>
+      <p>Language: 
         <i :class="'flag flag-' + flag(info.original_language)" />
       </p>
-      <p>{{ info.vote_average }}
+      <p>Vote:
         <i :class="info.vote_average > 0 ? 'fas fa-star' : 'far fa-star' "></i>
-        <i :class="info.vote_average >= 4 ? 'fas fa-star' : 'far fa-star' "></i>
-        <i :class="info.vote_average >= 6 ? 'fas fa-star' : 'far fa-star' "></i>
-        <i :class="info.vote_average >= 8 ? 'fas fa-star' : 'far fa-star' "></i>
-        <i :class="info.vote_average >= 10 ? 'fas fa-star' : 'far fa-star' "></i>
+        <i :class="info.vote_average > 3.5 ? 'fas fa-star' : 'far fa-star' "></i>
+        <i :class="info.vote_average > 5.5 ? 'fas fa-star' : 'far fa-star' "></i>
+        <i :class="info.vote_average > 7.5 ? 'fas fa-star' : 'far fa-star' "></i>
+        <i :class="info.vote_average > 8.5 ? 'fas fa-star' : 'far fa-star' "></i>
       </p>
-      <p>{{ info.overview }}</p>
+      <p>Overview: {{ info.overview }}</p>
     </div>
   </div>
 </template>
@@ -63,12 +63,15 @@ export default {
     position: relative;
     img {
       width: 100%;
+      height: 100%;
     }
     .description{
-      overflow: hidden;
+      width: 100%;
+      height: 452px;
+      padding: 1em;
+      overflow: auto;
       position: absolute;
       top: 0;
-      height: 452px;
       background-color: black;
       opacity: 0.8;
       display: none;

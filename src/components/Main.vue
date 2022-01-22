@@ -55,7 +55,8 @@ export default {
 
   .cards {
     width: 100vw;
-    padding-top: 2em;
+    padding-top: 8em;
+    padding-bottom: 2em;
     background: url('../assets/images/sfondo.jpg');
     display: flex;
     justify-content: center;

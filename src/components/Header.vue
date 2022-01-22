@@ -33,6 +33,9 @@ export default {
 
 <style lang="scss">
   .header {
+    width: 100%;
+    position: fixed;
+    z-index: 999;
     background-color: black;
     display: flex;
     justify-content: space-between;
