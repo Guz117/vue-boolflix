@@ -3,6 +3,7 @@
       <img :src="require('../assets/images/logo.png')" alt="">
       <div class="search">
       <input
+      @keyup.enter="$emit('searchFilm', textSearch)"
         v-model="textSearch"
         type="text"
         placeholder="Film e Serie TV"
